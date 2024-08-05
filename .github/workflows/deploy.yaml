@@ -14,12 +14,20 @@ jobs:
     environment: production
     steps:
       - uses: actions/checkout@v4
+
+      - name: Get latest commit link
+        run: |
+          REPO_URL="https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
+          echo "Latest commit URL: $REPO_URL"
+          echo "::set-output name=commit_url::$REPO_URL"
+
       - name: Check out manifests repo
         uses: actions/checkout@v4
         with:
           repository: ilopezluna/target
           persist-credentials: true # explicitly: needed later to commit + pull request
           path: manifests
+
       - name: Render docker image reference to manifests
         uses: mikefarah/yq@v4.44.2
         with:
@@ -30,3 +38,4 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
           path: manifests
+          commit-message: Link to latest commit is ${{ steps.get_commit_link.outputs.commit_url }}
