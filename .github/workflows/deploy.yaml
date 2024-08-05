@@ -39,5 +39,6 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
           path: manifests
-          title: Link to latest commit is ${{ steps.get_commit_link.outputs.commit_url }}
+          title: Deploy example ${{ github.run_number }}
+          body: Link to latest commit is ${{ steps.get_commit_link.outputs.commit_url }}
           branch: deploy-example-${{ github.run_number }}
