@@ -16,6 +16,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Get latest commit link
+        id: get_commit_link
         run: |
           REPO_URL="https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
           echo "Latest commit URL: $REPO_URL"
