@@ -29,5 +29,5 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           path: manifests
-          commit-message: ${{ github.event.head_commit }}
+          commit-message: ${{ github.event.head_commit.message }}
           branch: ${{ github.event.head_commit.id }}
