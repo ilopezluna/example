@@ -39,4 +39,4 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
           path: manifests
-          commit-message: Link to latest commit is ${{ steps.get_commit_link.outputs.commit_url }}
+          title: Link to latest commit is ${{ steps.get_commit_link.outputs.commit_url }}
