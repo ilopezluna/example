@@ -28,5 +28,5 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
+          token: ${{ secrets.PAT }}
           path: manifests
-          commit-message: ${{ github.event.head_commit.message }}
