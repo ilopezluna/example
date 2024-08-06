@@ -13,10 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - name: print event
-        env:
-          CONTEXT: ${{ toJson(github) }}
-        run: echo "Event is  ${{ CONTEXT.event }} "
+      - name: print event        
+        run: echo "Event is  ${{ toJson(github) }} "
       - uses: actions/checkout@v4
 
       - name: Get latest commit link
