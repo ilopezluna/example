@@ -15,8 +15,8 @@ jobs:
     steps:
       - name: print event
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "Event is  ${{ GITHUB_CONTEXT.event }} "
+          CONTEXT: ${{ toJson(github) }}
+        run: echo "Event is  ${{ CONTEXT.event }} "
       - uses: actions/checkout@v4
 
       - name: Get latest commit link
